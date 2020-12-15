@@ -356,6 +356,8 @@ C:\Users\Aran\source\repos\BlazorCA\BlazorCA\obj\Debug\netstandard2.1\RazorDecla
 C:\Users\Aran\source\repos\BlazorCA\BlazorCA\obj\Debug\netstandard2.1\Razor\Pages\Movie.razor.g.cs
 C:\Users\Aran\source\repos\BlazorCA\BlazorCA\obj\Debug\netstandard2.1\RazorDeclaration\Pages\Character.razor.g.cs
 C:\Users\Aran\source\repos\BlazorCA\BlazorCA\obj\Debug\netstandard2.1\Razor\Pages\Character.razor.g.cs
-C:\Users\Aran\source\repos\BlazorCA\BlazorCA\obj\Debug\netstandard2.1\integrity\hYFH-sPrVBz-TvoapWR5rJ7-L67fJHNA9vhTyK_DNiY=.hash
-C:\Users\Aran\source\repos\BlazorCA\BlazorCA\obj\Debug\netstandard2.1\integrity\q7qV9vxiV_oQpuEb7LbTTXO4W3UByHsiiFvXXtWumw0=.hash
-C:\Users\Aran\source\repos\BlazorCA\BlazorCA\obj\Debug\netstandard2.1\integrity\O7zWiGoXob467D-Y99tKS6e5lv5QftY5v32Ceuf-ecI=.hash
+C:\Users\Aran\source\repos\BlazorCA\BlazorCA\obj\Debug\netstandard2.1\RazorDeclaration\Pages\Bio.razor.g.cs
+C:\Users\Aran\source\repos\BlazorCA\BlazorCA\obj\Debug\netstandard2.1\Razor\Pages\Bio.razor.g.cs
+C:\Users\Aran\source\repos\BlazorCA\BlazorCA\obj\Debug\netstandard2.1\integrity\THq9mcJBc26ipwFPKra5r3tQDYx72bZy9QUdMI_o8a4=.hash
+C:\Users\Aran\source\repos\BlazorCA\BlazorCA\obj\Debug\netstandard2.1\integrity\0jsntbGfa66355GsKqzDZH7cCK0pcCW4cZWKpVUM5b4=.hash
+C:\Users\Aran\source\repos\BlazorCA\BlazorCA\obj\Debug\netstandard2.1\integrity\RAe-2QGIV30McreZQvwjGHanahTGvhPJQYLMEd8VV9c=.hash
