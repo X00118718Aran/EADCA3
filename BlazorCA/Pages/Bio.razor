@@ -1,5 +1,4 @@
-﻿@page "/bio/{Id}"
-@inherits Movie
+﻿@page "/bio/{CharID}"
 @inject HttpClient Http
 <h3>Bio</h3>
 
@@ -17,34 +16,29 @@ else
                 <th>Age</th>
                 <th>Eye Colour</th>
                 <th>Hair Colour</th>
-                <th>Species</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var character in characters)
-            {
                 <tr>
-                    <td>@character.Name</td>
-                    <td>@character.Gender</td>
-                    <td>@character.Age</td>
-                    <td>@character.Eye_color</td>
-                    <td>@character.Hair_color</td>
-                    <td>@character.Species</td>
+                    <td>@characters.Name</td>
+                    <td>@characters.Gender</td>
+                    <td>@characters.Age</td>
+                    <td>@characters.Eye_color</td>
+                    <td>@characters.Hair_color</td>
                 </tr>
-            }
         </tbody>
     </table>
 }
 
 @code {
     [Parameter]
-    public string Id { get; set; }
+    public string CharID { get; set; }
 
-    private List<CharacterList> characters = new List<CharacterList>();
+    private CharacterList characters;
 
     protected override async Task OnInitializedAsync()
     {
-        characters = await Http.GetFromJsonAsync<List<CharacterList>>("/people/" + Id);
+        characters = await Http.GetFromJsonAsync<CharacterList>("/people/"+CharID);
     }
 
     public class CharacterList
@@ -61,7 +55,7 @@ else
 
         public string Hair_color { get; set; }
 
-        public string[] Films { get; set; }
+        public string Film { get; set; }
 
         public string Species { get; set; }
 

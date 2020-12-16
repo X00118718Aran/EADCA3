@@ -3,16 +3,26 @@
 
 <h1 class="text-center text-primary">A Blazor website using the Studio Ghibli Api</h1>
 
+<h1 class="text-center text-primary">Ghibli Search Engine</h1>
+
+<div class="text-center">
+    <div class="p-2">
+        <input class="form-control form-control-lg w-50 mx-auto mt-4" placeholder="Character name" @bind-value="searchTerm" />
+    </div>
+    <div class="p-2">
+        <button class="btn btn-primary btn-lg" @onclick="Search">Search the Ghibli API</button>
+    </div>
+</div>
+
+
 @if (characters == null || films == null)
 {
-    <p><em>Loading...</em></p>
-}
+<p><em>Loading...</em></p> }
 else
 {
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <h1>TEst</h1>
             <table class="table">
                 <thead>
                     <tr>
@@ -24,11 +34,11 @@ else
                 <tbody>
                     @foreach (var character in randChars)
                     {
-                        <tr>
-                            <td><a href="bio/{@character.Id}">@character.Name</a></td>
-                            <td>@character.Gender</td>
-                            <td>@character.Age</td>
-                        </tr>
+                    <tr>
+                        <td><a href="bio/@character.Id">@character.Name</a></td>
+                        <td>@character.Gender</td>
+                        <td>@character.Age</td>
+                    </tr>
                     }
                 </tbody>
             </table>
@@ -45,11 +55,11 @@ else
                 <tbody>
                     @foreach (var film in randFilms)
                     {
-                        <tr>
-                            <td>@film.Title</td>
-                            <td>@film.Release_date</td>
-                            <td>@film.Rt_score</td>
-                        </tr>
+                    <tr>
+                        <td><a href="/moviebio/@film.Id">@film.Title</a></td>
+                        <td>@film.Release_date</td>
+                        <td>@film.Rt_score</td>
+                    </tr>
                     }
                 </tbody>
             </table>
@@ -58,24 +68,46 @@ else
 </div>
 }
 
-@code{
+@code{ 
     private List<CharacterList> characters = new List<CharacterList>();
     private List<FilmList> films = new List<FilmList>();
     private List<CharacterList> randChars = new List<CharacterList>();
     private List<FilmList> randFilms = new List<FilmList>();
     Random r = new Random();
+    private string searchTerm;
+
+    private async Task Search()
+    {
+        randChars.Clear();
+        randFilms.Clear();
+        foreach (var character in characters)
+        {
+            if (character.Name.IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                randChars.Add(character);
+            }
+        }
+        foreach (var film in films)
+        {
+            if (film.Title.IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                randFilms.Add(film);
+            }
+        }
+    }
 
     void RandLists()
     {
         randChars.Clear();
         randFilms.Clear();
-        int rInt;
-        while (randChars.Count < 5 && randFilms.Count < 5)
+
+        var rChar = Enumerable.Range(0, (characters.Count - 1)).OrderBy(x => Guid.NewGuid()).Take(5).ToArray();
+        var rFilm = Enumerable.Range(0, (films.Count - 1)).OrderBy(x => Guid.NewGuid()).Take(5).ToArray();
+
+        for (int i = 0; i < 5; i++)
         {
-            rInt = r.Next(0, (characters.Count - 1));
-            randChars.Add(characters.ElementAt(rInt));
-            rInt = r.Next(0, (films.Count - 1));
-            randFilms.Add(films.ElementAt(rInt));
+            randChars.Add(characters.ElementAt(rChar[i]));
+            randFilms.Add(films.ElementAt(rFilm[i]));
         }
     }
 
@@ -124,5 +156,4 @@ else
 
         public string Url { get; set; }
 
-    }
-}
+    } }
