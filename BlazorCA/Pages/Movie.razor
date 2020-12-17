@@ -31,7 +31,7 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var film in films)
+            @foreach (var film in searchFilms)
             {
                 <tr>
                     <td><a href="/moviebio/@film.Id">@film.Title</a></td>
@@ -52,20 +52,22 @@ else
 
     private async Task Search()
     {
-        films.Clear();
+        searchFilms.Clear();
         foreach (var film in films)
         {
             if (film.Title.IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)
             {
-                films.Add(film);
+                searchFilms.Add(film);
             }
         }
     }
     private List<FilmList> films = new List<FilmList>();
+    private List<FilmList> searchFilms = new List<FilmList>();
 
     protected override async Task OnInitializedAsync()
     {
         films = await Http.GetFromJsonAsync<List<FilmList>>("/films");
+        searchFilms = await Http.GetFromJsonAsync<List<FilmList>>("/films");
     }
 
     public class FilmList

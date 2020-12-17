@@ -720,6 +720,6 @@ C:\Users\Aran\Desktop\BlazorCA\obj\Debug\netstandard2.1\BlazorCA.pdb
 C:\Users\Aran\source\repos\BlazorCA\BlazorCA\bin\Debug\netstandard2.1\Properties\ServiceDependencies\BlazorCA20201215161821 - Web Deploy\profile.arm.json
 C:\Users\Aran\source\repos\BlazorCA\BlazorCA\obj\Debug\netstandard2.1\RazorDeclaration\Pages\MovieBio.razor.g.cs
 C:\Users\Aran\source\repos\BlazorCA\BlazorCA\obj\Debug\netstandard2.1\Razor\Pages\MovieBio.razor.g.cs
-C:\Users\Aran\source\repos\BlazorCA\BlazorCA\obj\Debug\netstandard2.1\integrity\-6Trb-13WXnK_X7MwyKNQqeCJX3Cu8RMfPrIZyNdbwM=.hash
-C:\Users\Aran\source\repos\BlazorCA\BlazorCA\obj\Debug\netstandard2.1\integrity\pUtO1X8wtim-UzJSehX_d_jrZDVu1X8DIauS04IFCCA=.hash
-C:\Users\Aran\source\repos\BlazorCA\BlazorCA\obj\Debug\netstandard2.1\integrity\I4c_sGlGsLnOd9AELQfUz9ZW8zejqoy-KfcXW47VJTc=.hash
+C:\Users\Aran\source\repos\BlazorCA\BlazorCA\obj\Debug\netstandard2.1\integrity\-EFCwq-mFR-WZjVIPmsHJ3tmlUCLj8c5isxLdpgYtnA=.hash
+C:\Users\Aran\source\repos\BlazorCA\BlazorCA\obj\Debug\netstandard2.1\integrity\0SOnx_s_V2yxE0vHs-umLfrQsZKB4_Fl3ZjX8Dfckiw=.hash
+C:\Users\Aran\source\repos\BlazorCA\BlazorCA\obj\Debug\netstandard2.1\integrity\hbwhSx8vFps-MVMv9LXT3iEV1JK6qPQFoo8WUOLpu6Y=.hash

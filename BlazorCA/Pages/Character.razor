@@ -34,7 +34,7 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var character in characters)
+            @foreach (var character in searchChars)
             {
                 <tr>
                     <td>
@@ -55,22 +55,24 @@ else
 
     private async Task Search()
     {
-        characters.Clear();
+        searchChars.Clear();
         foreach (var character in characters)
         {
             if (character.Name.IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)
             {
-                characters.Add(character);
+                searchChars.Add(character);
             }
         }
     }
     private List<CharacterList> characters = new List<CharacterList>();
+    private List<CharacterList> searchChars = new List<CharacterList>();
 
     
 
     protected override async Task OnInitializedAsync()
     {
         characters = await Http.GetFromJsonAsync<List<CharacterList>>("/people");
+        searchChars = await Http.GetFromJsonAsync<List<CharacterList>>("/people");
     }
 
     public class CharacterList
