@@ -7,7 +7,7 @@
 
 <div class="text-center">
     <div class="p-2">
-        <input class="form-control form-control-lg w-50 mx-auto mt-4" placeholder="Character name" @bind-value="searchTerm" />
+        <input class="form-control form-control-lg w-50 mx-auto mt-4" placeholder="search..." @bind-value="searchTerm" />
     </div>
     <div class="p-2">
         <button class="btn btn-primary btn-lg" @onclick="Search">Search the Ghibli API</button>
@@ -23,6 +23,7 @@ else
 <div class="container">
     <div class="row">
         <div class="col-6">
+            <h3 class="text-center text-secondary">Characters</h3>
             <table class="table">
                 <thead>
                     <tr>
@@ -44,6 +45,7 @@ else
             </table>
         </div>
         <div class="col-6">
+            <h3 class="text-center text-secondary">Movies</h3>
             <table class="table">
                 <thead>
                     <tr>
@@ -156,4 +158,7 @@ else
 
         public string Url { get; set; }
 
-    } }
+    } 
+
+
+}

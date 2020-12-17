@@ -16,6 +16,7 @@ else
                 <th>Age</th>
                 <th>Eye Colour</th>
                 <th>Hair Colour</th>
+                <th>Species</th>
             </tr>
         </thead>
         <tbody>
@@ -25,6 +26,7 @@ else
                     <td>@characters.Age</td>
                     <td>@characters.Eye_color</td>
                     <td>@characters.Hair_color</td>
+                    <td>@charSpecies.Name</td>
                 </tr>
         </tbody>
     </table>
@@ -35,10 +37,28 @@ else
     public string CharID { get; set; }
 
     private CharacterList characters;
+    private SpeciesList charSpecies;
+    private List<SpeciesList> species = new List<SpeciesList>();
+
+    async Task SpeciesFinder()
+    {
+        charSpecies = null;
+        for(int i = 0; i < species.Count; i++)
+        {
+            if (characters.Species.Contains(species.ElementAt(i).ID))
+            {
+                charSpecies = species.ElementAt(i);
+            }
+        }
+    }
+
+
 
     protected override async Task OnInitializedAsync()
     {
         characters = await Http.GetFromJsonAsync<CharacterList>("/people/"+CharID);
+        species = await Http.GetFromJsonAsync<List<SpeciesList>>("/species");
+        SpeciesFinder();
     }
 
     public class CharacterList
@@ -55,12 +75,32 @@ else
 
         public string Hair_color { get; set; }
 
-        public string Film { get; set; }
+        public string[] Film { get; set; }
 
         public string Species { get; set; }
 
         public string Url { get; set; }
 
     }
+    public class SpeciesList
+    {
+        public string ID { get; set; }
+
+        public string Name { get; set; }
+
+        public string Classification { get; set; }
+
+        public string Eye_colors { get; set; }
+
+        public string Hair_colors { get; set; }
+
+        public string Url { get; set; }
+
+        public string[] People { get; set; }
+
+        public string[] Films { get; set; }
+
+    }
+
 }
 

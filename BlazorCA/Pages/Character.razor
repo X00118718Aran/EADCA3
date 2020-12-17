@@ -7,7 +7,7 @@
 
 <div class="text-center">
     <div class="p-2">
-        <input class="form-control form-control-lg w-50 mx-auto mt-4" placeholder="Character name" @bind-value="searchTerm" />
+        <input class="form-control form-control-lg w-50 mx-auto mt-4" placeholder="search..." @bind-value="searchTerm" />
     </div>
     <div class="p-2">
         <button class="btn btn-primary btn-lg" @onclick="Search">Search the Ghibli API</button>
@@ -17,7 +17,9 @@
 
 @if (characters == null)
 {
-    <p><em>Loading...</em></p>
+    <p>
+        <em>Loading...</em>
+    </p>
 }
 else
 {
@@ -29,19 +31,19 @@ else
                 <th>Age</th>
                 <th>Eye Colour</th>
                 <th>Hair Colour</th>
-                <th>Species</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var character in searchChars)
+            @foreach (var character in characters)
             {
                 <tr>
-                    <td>@character.Name</td>
+                    <td>
+                        <a href="/bio/@character.Id">@character.Name</a>
+                    </td>
                     <td>@character.Gender</td>
                     <td>@character.Age</td>
                     <td>@character.Eye_color</td>
                     <td>@character.Hair_color</td>
-                    <td>@character.Species</td>
                 </tr>
             }
         </tbody>
@@ -53,18 +55,18 @@ else
 
     private async Task Search()
     {
-        searchChars.Clear();
+        characters.Clear();
         foreach (var character in characters)
         {
-            if (character.Name.IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >=0)
+            if (character.Name.IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)
             {
-                searchChars.Add(character);
+                characters.Add(character);
             }
         }
     }
-
-    private List<CharacterList> searchChars = new List<CharacterList>();
     private List<CharacterList> characters = new List<CharacterList>();
+
+    
 
     protected override async Task OnInitializedAsync()
     {
